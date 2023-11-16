@@ -1,0 +1,51 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Trabajador</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Listado de trabajador</h5>
+    
+    
+      <div class="my-2 text-left">
+        <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/trabajador/form']">
+          Crear Trabajador
+        </button>
+      </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Cédula</th>
+            <th>Correo</th>
+            <th>Cargo</th>
+            <th>Fecha</th>
+            <th>Finca</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let trabajador of trabajadores">
+            <td>{{ trabajador.id }}</td>
+            <td>{{ trabajador.nombre }}</td>
+            <td>{{ trabajador.apellido }}</td>
+            <td>{{ trabajador.cedula }}</td>
+            <td>{{ trabajador.correo }}</td>
+            <td>{{ trabajador.cargo }}</td>
+            <td>{{ trabajador.fecha }}</td>
+            <td>{{ trabajador.finca.nombre}}</td> 
+
+            <td >
+              <button type="button" name="editar"  [routerLink]="['/trabajador/form', trabajador.id]" class="btn btn-primary btn-sm">Editar</button>
+            </td>
+
+
+            <td >
+              <button type="button" name="eliminar" (click)='delete(trabajador)' class="btn btn-danger btn-sm">Eliminar</button>
+            </td>  
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

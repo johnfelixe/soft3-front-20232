@@ -1,0 +1,44 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Vaca</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Listado de vacas</h5>
+    
+    
+      <div class="my-2 text-left">
+        <button  class= "btn btn-rounded btn-primary" type="button" [routerLink]="['/vaca/form']">
+          Crear Vaca
+        </button>
+      </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Raza</th>
+            <th>Finca</th>
+            <th>
+              Editar
+            </th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vaca of vacas">
+            <td>{{ vaca.id }}</td>
+            <td>{{ vaca.nombre }}</td>
+            <td>{{ vaca.raza }}</td>
+            <td>{{ vaca.finca.nombre}}</td>
+            <td >
+              <button type="button" name="editar"  [routerLink]="['/vaca/form', vaca.id]" class="btn btn-primary btn-sm">Editar</button>
+            </td>
+
+
+            <td >
+              <button type="button" name="eliminar" (click)='delete(vaca)' class="btn btn-danger btn-sm">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

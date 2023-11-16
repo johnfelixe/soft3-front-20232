@@ -1,0 +1,76 @@
+<div class="card bg-dark text-white">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+  
+      <form>
+        <div class="form-group row">
+          <label for="nombre" class="col-form-label col-sm-2">Cantidad</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="produccion.cantidad" name="cantidad">
+          </div>
+        </div>
+
+           
+
+
+       
+        <div class="form-group row">
+            <label for="vaca" class="col-form-label col-sm-2">Vaca</label>
+            <div class="col-sm-6">
+              <select  [compareWith]="comparar" class="form-control" [(ngModel)]="produccion.vaca" name="vaca" >
+                <option [ngValue]="undefined">--Selecionar una vaca--</option>
+                <option *ngFor="let vaca of vacas" [ngValue]="vaca">{{vaca.nombre}}</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label for="trabajador" class="col-form-label col-sm-2">Trabajador</label>
+            <div class="col-sm-6">
+              <select   class="form-control" [(ngModel)]="produccion.trabajador" name="trabajador" >
+                <option [ngValue]="undefined">--Selecionar un trabajador-</option>
+                <option *ngFor="let trabajador of trabajadores" [ngValue]="trabajador">{{trabajador.nombre}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="finca" class="col-form-label col-sm-2">Finca</label>
+            <div class="col-sm-6">
+              <select  [compareWith]="comparar" class="form-control" [(ngModel)]="produccion.finca" name="trabajador" >
+                <option [ngValue]="undefined">--Selecionar una finca--</option>
+                <option *ngFor="let finca of fincas" [ngValue]="finca">{{finca.nombre}}</option>
+              </select>
+            </div>
+          </div>
+
+
+
+
+          <div class="form-group row">
+          <label for="fechaIngreso" class="col-form-label col-sm-2">Fecha registro</label>
+          <div class="col-sm-6">
+            <input  type="date" class="form-control" [(ngModel)]="produccion.fecha" name="fecha" >           
+          </div>
+        </div>
+
+
+        
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!produccion.id else elseBlock"   >Crear</button>
+  
+            <ng-template #elseBlock>
+              <button class="btn btn-primary" role="button" (click)='update()'  >Editar</button>
+            </ng-template>
+          </div>
+        </div>
+  
+      
+        
+      </form>
+  
+    </div>
+  </div>
+  

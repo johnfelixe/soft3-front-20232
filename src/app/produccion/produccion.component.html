@@ -1,0 +1,49 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Leche</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Produccion</h5>
+    
+    
+       <div class="my-2 text-left">
+        <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/producciones/form']">
+          Registrar producccion
+        </button>
+      </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Fecha</th>
+            <th>Cantidad</th>
+            <th>Vaca</th>
+            <th>Trabajador</th>
+            <th>Finca</th>
+            <th>
+              Editar
+            </th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let produccion of producciones">
+            <td>{{ produccion.id }}</td>
+            <td>{{ produccion.fecha }}</td>
+            <td>{{ produccion.cantidad }}</td>
+            <td>{{ produccion.vaca.nombre }}</td>
+            <td>{{ produccion.trabajador.nombre }}</td>
+            <td>{{ produccion.finca.nombre }}</td>
+
+            <td >
+              <button type="button" name="editar"  [routerLink]="['/produccion/form', produccion.id]" class="btn btn-primary btn-sm">Editar</button>
+            </td>
+  
+  
+              <td >
+                <button type="button" name="eliminar" (click)='delete(produccion)' class="btn btn-danger btn-sm">Eliminar</button>
+              </td> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

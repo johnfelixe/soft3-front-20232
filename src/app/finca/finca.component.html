@@ -1,0 +1,29 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">finca</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Datos de la finca</h5>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>nombre</th>
+            <th>direccion</th>
+            <th>hectareas</th>
+            <th>leche</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let finca of fincas">
+            <td>{{ finca.id }}</td>
+            <td>{{ finca.nombre }}</td>
+            <td>{{ finca.direccion }}</td>
+            <td>{{ finca.hectareas }}</td>
+            <td>{{ finca.leche }}</td> 
+
+             
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

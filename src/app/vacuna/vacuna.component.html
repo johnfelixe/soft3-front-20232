@@ -1,0 +1,44 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Vacuna</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Listado de vacunas</h5>
+    
+    
+      <div class="my-2 text-left">
+        <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/vacuna/form']">
+          Crear Vacuna
+        </button>
+      </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+      
+            <th>
+              Editar
+            </th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vacuna of vacunas">
+            <td>{{ vacuna.id }}</td>
+            <td>{{ vacuna.nombre }}</td>
+            <td>{{ vacuna.tipo }}</td>
+         
+            <td >
+              <button type="button" name="editar"  [routerLink]="['/vacuna/form', vacuna.id]" class="btn btn-primary btn-sm">Editar</button>
+            </td>
+
+
+            <td >
+              <button type="button" name="eliminar" (click)='delete(vacuna)' class="btn btn-danger btn-sm">Eliminar</button>
+            </td>  
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
